@@ -3,15 +3,25 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import { testMonster } from './drop-simulator/TestMonster';
+import { LootWindow } from './features/loot-window/LootWindow';
+import { ItemData } from './types/types';
 
 function App() {
+  let loot: ItemData[] = []
+  console.time("Loot Sim")
+  loot = testMonster.kill(10000);
+  console.timeEnd("Loot Sim")
   useEffect(() => {
 
-     console.table(testMonster.resultToNames(50));
+    //  console.table(testMonster.resultToNames(50));
     
   }, [])
+
+
+
   return (
     <div className="App">
+      <LootWindow bank={loot} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />

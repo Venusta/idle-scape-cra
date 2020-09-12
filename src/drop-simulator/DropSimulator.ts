@@ -1,5 +1,5 @@
 import { ItemData } from "../types/types";
-import { getRandomIntInclusive, getRandomInt, rollForOneIn } from "../util";
+import { getRandomIntInclusive, rollForOneIn } from "../util";
 import {
   DropData, SecondaryDropData, ChanceDropData, Amount, DropTable,
 } from "./DropTable";
@@ -74,7 +74,7 @@ export class DropSimulator {
       }
     }
 
-    const roll = getRandomInt(1, this.totalWeight);
+    const roll = getRandomIntInclusive(1, this.totalWeight);
     let lootIndex = 0;
     let weightTally = 0;
 

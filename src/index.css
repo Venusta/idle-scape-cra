@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html,
+body {
+  background-color: rgb(24, 25, 26);
+  color: rgb(245, 246, 247);
+  font-family: "Consolas";
+  font-size: 14px;
+  box-sizing: border-box;
+  /* border: solid rgb(219, 91, 202) 1px; */
+  /* height: 100%; */
+}

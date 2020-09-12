@@ -33,7 +33,7 @@ const dropTable = new DropTable()
   .add("Grimy ranarr weed", 8, 5)
   .add("Ranarr seed", 8, 2)
   .add("Magic seed")
-  .add("Coins", 27, [19500, 20000]) // 27?
+  .add("Coins", 27, [19500, 20000])
   .add("Adamant platebody", 8)
   .add("Rune dart", 8, [35, 40])
   .add("Rune kiteshield", 8)
