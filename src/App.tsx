@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { testMonster } from './drop-simulator/TestMonster';
 
 function App() {
+  useEffect(() => {
+
+     console.table(testMonster.resultToNames(50));
+    
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
