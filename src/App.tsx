@@ -6,18 +6,25 @@ import { commanderZilyana } from './drop-simulator/CommanderZilyana';
 import { LootWindow } from './features/loot-window/LootWindow';
 import { ItemData } from './types/types';
 import { corporealBeast } from './drop-simulator/CorporealBeast';
+import { chaosDruid } from './drop-simulator/ChaosDruid';
 
 function App() {
   let loot: ItemData[] = []
   let loot2: ItemData[] = []
+  let loot3: ItemData[] = []
   console.time("Loot Sim")
-  loot = commanderZilyana.kill(1000);
+  loot = commanderZilyana.kill(10000);
   console.timeEnd("Loot Sim")
-  console.time("Loot Sim2")
-  
-  loot2 = corporealBeast.kill(1000);
+
+  console.time("Loot Sim2")  
+  loot2 = corporealBeast.kill(10000);
   console.timeEnd("Loot Sim2")
   console.log(loot2);
+
+  console.time("Loot Sim3")  
+  loot3 = chaosDruid.kill(10000);
+  console.timeEnd("Loot Sim3")
+  console.log(loot3);
   useEffect(() => {
 
     //  console.table(testMonster.resultToNames(50));
@@ -33,6 +40,7 @@ function App() {
       }), null, 2)}</p> */}
       <LootWindow bank={loot2} />
       <LootWindow bank={loot} />
+      <LootWindow bank={loot3} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />

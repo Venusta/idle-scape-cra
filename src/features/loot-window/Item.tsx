@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import { getIcon } from "../../model/Icon";
+import { itemSearchData } from "../../model/Items";
 
 interface ItemProps {
   itemID: number;
   amount: string;
   colour: string;
-
 }
 
 interface ItemImageProps {
@@ -40,7 +39,7 @@ const ItemAmountTag = ({ amount, colour }: ItemAmountTagProps) => (
 );
 
 export const Item = ({ itemID, amount, colour }: ItemProps): JSX.Element => (
-  <div className="item" title={`${itemID}`}>
+  <div className="item" title={`${itemID} - ${itemSearchData.getName(itemID)}`}>
     <ItemAmountTag amount={amount} colour={colour} />
     <ItemImage itemID={itemID} />
   </div>

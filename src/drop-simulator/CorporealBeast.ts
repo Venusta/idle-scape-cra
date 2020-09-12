@@ -1,5 +1,6 @@
 import { DropTable } from "./DropTable";
 import { Monster } from "./Monster";
+import { rareDropTable } from "./RareDropTable";
 
 const uniques = new DropTable()
   .add("Spectral sigil", 3)
@@ -44,7 +45,7 @@ const dropTable = new DropTable()
   .add("Ranarr seed", 5, 10)
   .add("Holy elixir", 3)
   
-  .nothing(12) // remove after adding rdt
+  .add(rareDropTable, 12, 10)
 
   .tertiary("Clue scroll (elite)", 200)
   .tertiary("Pet dark core", 5000);
