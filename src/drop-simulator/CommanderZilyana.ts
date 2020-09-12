@@ -46,7 +46,7 @@ const dropTable = new DropTable()
   .tertiary("Clue scroll (elite)", 250)
   .tertiary("Pet zilyana", 5000);
 
-export const testMonster = new Monster({
+export const commanderZilyana = new Monster({
   name: "Commander Zilyana",
   dropTable,
 });

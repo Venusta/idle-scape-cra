@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+/scripts/**/*.json
+/scripts/**/*.png
+
 # production
 /build
 

@@ -2,15 +2,22 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import { testMonster } from './drop-simulator/TestMonster';
+import { commanderZilyana } from './drop-simulator/CommanderZilyana';
 import { LootWindow } from './features/loot-window/LootWindow';
 import { ItemData } from './types/types';
+import { corporealBeast } from './drop-simulator/CorporealBeast';
 
 function App() {
   let loot: ItemData[] = []
+  let loot2: ItemData[] = []
   console.time("Loot Sim")
-  loot = testMonster.kill(10000);
+  loot = commanderZilyana.kill(1000);
   console.timeEnd("Loot Sim")
+  console.time("Loot Sim2")
+  
+  loot2 = corporealBeast.kill(1000);
+  console.timeEnd("Loot Sim2")
+  console.log(loot2);
   useEffect(() => {
 
     //  console.table(testMonster.resultToNames(50));
@@ -21,6 +28,10 @@ function App() {
 
   return (
     <div className="App">
+      {/* <p>{JSON.stringify(loot2.map((item) => {
+        return item.item
+      }), null, 2)}</p> */}
+      <LootWindow bank={loot2} />
       <LootWindow bank={loot} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

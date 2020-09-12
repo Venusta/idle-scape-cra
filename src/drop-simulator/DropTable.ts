@@ -77,7 +77,7 @@ export class DropTable {
    * @param amount number or range eg 5 or [5,10]
    */
 
-  oneInX = (drop: number | string, chance: number, amount: Amount = 1): this => {
+  oneInX = (drop: Drop | string, chance: number, amount: Amount = 1): this => {
     this.oneInXItems.push({ item: resolveId(drop), amount, chance });
     return this;
   };
