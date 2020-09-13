@@ -24,7 +24,8 @@ const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       width="36"
       height="32"
       src={process.env.PUBLIC_URL + `/images/${itemID}.png`}
-      onError={(e) => handleError(e)} />
+      onError={(e) => handleError(e)} 
+      />
   );
 };
 

@@ -2,23 +2,25 @@ import { itemSearchData } from "./Items";
 import { DropTable } from "../drop-simulator/DropTable";
 import { DropSimulator } from "../drop-simulator/DropSimulator";
 import { AttackType, ExpReward, ItemData, MonsterData, StyleExperience } from "../types/types";
+// import monsterData blahblah .json
 
 interface MonsterOptions {
-  // id: number;
+  id: number;
   name: string;
   dropTable: DropTable;
 }
 
 export class Monster {
-  // id: number
+  id: number
   name: string;
   dropTable: DropTable;
   data: MonsterData;
   
-  constructor({ name, dropTable }: MonsterOptions) {
+  constructor({ id, name, dropTable }: MonsterOptions) {   
     this.dropTable = dropTable;
     this.name = name
-    // this.id = id;
+    this.id = id;
+    // this.data = monsterData[id];
     this.data = {
       combatLevel: 111,
       hitpoints: 105,

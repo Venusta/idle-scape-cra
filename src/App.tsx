@@ -49,8 +49,8 @@ const SingleCharacterView = () => { // pass components into this i think
     <div className="container">
       <div className="middel-panel">
         <LootWindow bank={loot2} />
-        <LootWindow bank={loot} />
-        <LootWindow bank={loot3} />
+        {/* <LootWindow bank={loot} />
+        <LootWindow bank={loot3} /> */}
         <Log />
         <TaskList />
         <Bank id={characterId} />
