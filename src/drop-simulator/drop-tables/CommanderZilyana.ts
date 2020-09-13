@@ -1,5 +1,5 @@
-import { DropTable } from "./DropTable";
-import { Monster } from "./Monster";
+import { DropTable } from "../DropTable";
+import { Monster } from "../Monster";
 
 const brewRest = new DropTable()
   .always("Saradomin brew(3)", 3)

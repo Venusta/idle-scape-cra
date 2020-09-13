@@ -23,7 +23,6 @@ const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       className="itemImage"
       width="36"
       height="32"
-      // src={`data:image/png;base64, ${getIcon(itemID)}`}
       src={process.env.PUBLIC_URL + `/images/${itemID}.png`}
       onError={(e) => handleError(e)} />
   );

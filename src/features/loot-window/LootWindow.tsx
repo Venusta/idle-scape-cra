@@ -11,7 +11,7 @@ interface BankProps {
 }
 
 export const LootWindow: React.FC<BankProps> = ({ bank }) => {
-  const renderItem = (itemID: number, { amount, colour }: {amount: string, colour: string}): JSX.Element => (
+  const renderItem = (itemID: number, { amount, colour }: { amount: string, colour: string }): JSX.Element => (
     <ItemInBank
       key={`bankItem-${uuid()}`}
       itemID={itemID}
@@ -31,14 +31,12 @@ export const LootWindow: React.FC<BankProps> = ({ bank }) => {
   };
 
   return (
-    <div className="bank-window panel-window">
-      <div className="bank-title panel-title">
+    <div className="bank-window">
+      <div className="bank-title">
         Kill data maybe
       </div>
       <div className="bank-inner">
-        <div
-          className="bank-wrapper"
-        >
+        <div className="bank-wrapper">
           {renderBank2()}
         </div>
       </div>

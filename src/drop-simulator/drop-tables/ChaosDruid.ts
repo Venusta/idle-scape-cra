@@ -1,5 +1,5 @@
-import { DropTable } from "./DropTable";
-import { Monster } from "./Monster";
+import { DropTable } from "../DropTable";
+import { Monster } from "../Monster";
 import { herbDropTable } from "./HerbDropTable";
 import { gemDropTable } from "./GemDropTable";
 

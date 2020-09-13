@@ -1,5 +1,5 @@
-import { DropTable } from "./DropTable";
-import { Monster } from "./Monster";
+import { DropTable } from "../DropTable";
+import { Monster } from "../Monster";
 import { rareDropTable } from "./RareDropTable";
 
 const uniques = new DropTable()

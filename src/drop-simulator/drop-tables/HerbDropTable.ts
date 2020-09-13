@@ -1,4 +1,4 @@
-import { DropTable } from "./DropTable";
+import { DropTable } from "../DropTable";
 
 export const herbDropTable = new DropTable()
   .add("Grimy guam leaf", 32)

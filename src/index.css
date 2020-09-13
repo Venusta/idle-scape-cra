@@ -14,11 +14,19 @@ code {
 
 html,
 body {
-  background-color: rgb(24, 25, 26);
+  /* background-color: rgb(54, 57, 58); */
+  background-color: rgb(45, 48, 50);
+  /* background-color: rgb(24, 25, 26); */
   color: rgb(245, 246, 247);
   font-family: "Consolas";
   font-size: 14px;
   box-sizing: border-box;
   /* border: solid rgb(219, 91, 202) 1px; */
   /* height: 100%; */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-color: #464748 #202122;
 }

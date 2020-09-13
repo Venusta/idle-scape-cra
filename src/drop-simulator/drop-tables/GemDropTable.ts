@@ -1,4 +1,4 @@
-import { DropTable } from "./DropTable";
+import { DropTable } from "../DropTable";
 import { megaRareDropTable } from "./MegaRareDropTable";
 
 export const gemDropTable = new DropTable()

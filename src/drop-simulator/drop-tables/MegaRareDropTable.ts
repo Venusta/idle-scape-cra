@@ -1,4 +1,4 @@
-import { DropTable } from "./DropTable";
+import { DropTable } from "../DropTable";
 
 export const megaRareDropTable = new DropTable()
   .nothing(113) // Never when weraing ring of wealth but fuck that shit for now

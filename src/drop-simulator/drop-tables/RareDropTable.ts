@@ -1,4 +1,4 @@
-import { DropTable } from "./DropTable";
+import { DropTable } from "../DropTable";
 import { gemDropTable } from "./GemDropTable";
 import { megaRareDropTable } from "./MegaRareDropTable";
 
