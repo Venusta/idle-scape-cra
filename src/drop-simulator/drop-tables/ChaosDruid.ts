@@ -1,9 +1,8 @@
 import { DropTable } from "../DropTable";
-import { Monster } from "../Monster";
 import { herbDropTable } from "./HerbDropTable";
 import { gemDropTable } from "./GemDropTable";
 
-const dropTable = new DropTable()
+export const dropTable = new DropTable()
   .always("Bones")
   .add("Law rune", 7, 2)
   .add("Mithril bolts", 5, [2, 12])
@@ -26,7 +25,3 @@ const dropTable = new DropTable()
   .tertiary("Ensouled chaos druid head", 35);
 
 
-export const chaosDruid = new Monster({
-  name: "Chaos Druid",
-  dropTable,
-});

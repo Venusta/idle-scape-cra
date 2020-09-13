@@ -1,5 +1,4 @@
 import { DropTable } from "../DropTable";
-import { Monster } from "../Monster";
 import { rareDropTable } from "./RareDropTable";
 
 const uniques = new DropTable()
@@ -7,7 +6,7 @@ const uniques = new DropTable()
   .add("Arcane sigil", 3)
   .add("Elysian sigil")
 
-const dropTable = new DropTable()
+export const dropTable = new DropTable()
   .oneInX(uniques, 585)
   .add("Mystic robe top", 18)
   .add("Mystic robe bottom", 18)
@@ -50,7 +49,3 @@ const dropTable = new DropTable()
   .tertiary("Clue scroll (elite)", 200)
   .tertiary("Pet dark core", 5000);
 
-export const corporealBeast = new Monster({
-  name: "Corporeal Beast",
-  dropTable,
-});

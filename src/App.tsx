@@ -1,93 +1,94 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
-import { commanderZilyana } from './drop-simulator/drop-tables/CommanderZilyana';
 import { LootWindow } from './features/loot-window/LootWindow';
 import { ItemData } from './types/types';
-import { corporealBeast } from './drop-simulator/drop-tables/CorporealBeast';
-import { chaosDruid } from './drop-simulator/drop-tables/ChaosDruid';
+import { Sidebar } from './features/sidebar/Sidebar';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { TaskSelector } from './features/task-selector/TaskSelector';
+import { useSelector, shallowEqual } from 'react-redux';
+import { RootState } from './app/store';
+import { NameState } from './builders/CharacterBuilder';
+import { Bank } from './features/bank/Bank';
+import { TaskList } from './features/task-list/TaskList';
+import { Log } from './features/task-log/Log';
+import { TaskTimer } from './features/TaskTimer/TaskTimer';
+import { monsters } from "./monsters/"
 
-function App() {
-  let loot: ItemData[] = []
-  let loot2: ItemData[] = []
-  let loot3: ItemData[] = []
+const SingleCharacterView = () => { // pass components into this i think
+  const ids: NameState = useSelector((state: RootState) => state.characters.names, shallowEqual);
+  const { characterId } = useParams<{ characterId: string }>();
+
+  if (ids[characterId] === undefined) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    );
+  }
+  const { commanderZilyana, corporealBeast, chaosDruid } = monsters;
   console.time("Loot Sim")
-  loot = commanderZilyana.kill(10000);
+  let loot: ItemData[] = []
+  loot = commanderZilyana.kill(1000);
   console.timeEnd("Loot Sim")
 
   console.time("Loot Sim2")
-  loot2 = corporealBeast.kill(10000);
+  let loot2: ItemData[] = []
+  loot2 = corporealBeast.kill(1000);
   console.timeEnd("Loot Sim2")
   console.log(loot2);
 
   console.time("Loot Sim3")
-  loot3 = chaosDruid.kill(10000);
+  let loot3: ItemData[] = []
+  loot3 = chaosDruid.kill(1000);
   console.timeEnd("Loot Sim3")
   console.log(loot3);
+
+  return (
+    <div className="container">
+      <div className="middel-panel">
+        <LootWindow bank={loot2} />
+        <LootWindow bank={loot} />
+        <LootWindow bank={loot3} />
+        <Log />
+        <TaskList />
+        <Bank id={characterId} />
+      </div>
+      <TaskSelector />
+    </div>
+  );
+};
+
+const App = () => {
+
   useEffect(() => {
 
     //  console.table(testMonster.resultToNames(50));
 
   }, [])
 
-
-
   return (
     <div className="App">
       {/* <p>{JSON.stringify(loot2.map((item) => {
         return item.item
       }), null, 2)}</p> */}
-      <div className="loot-windows">
-        <LootWindow bank={loot2} />
-        <LootWindow bank={loot} />
-        <LootWindow bank={loot3} />
-      </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <TaskTimer />
+      <Sidebar />
+      <Switch>
+        <Route exact path="/">
+          <div className="middel-panel">
+            some content
+        </div>
+
+        </Route>
+        <Route path="/character/:characterId">
+          <SingleCharacterView />
+        </Route>
+        <Route>
+          <h1>404 Not Found</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }
