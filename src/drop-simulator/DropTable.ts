@@ -45,6 +45,7 @@ export class DropTable {
    */
 
   add = (drop: Drop | string, weight = 1, amount: Amount = 1): this => {
+    if (weight === 0) throw new Error("WTF WEIGHT 0, LEARN TO TYPE, YOU CUNT")
     this.secondaryItems.push({ item: resolveId(drop), amount, weight });
     this.totalWeight += weight;
     return this;

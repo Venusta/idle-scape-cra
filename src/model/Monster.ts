@@ -1,7 +1,8 @@
 import { itemSearchData } from "./Items";
 import { DropTable } from "../drop-simulator/DropTable";
-import { DropSimulator } from "../drop-simulator/DropSimulator";
-import { AttackType, ExpReward, ItemData, MonsterData, StyleExperience } from "../types/types";
+import { dropMapToItemData, getDrop } from "../drop-simulator/DropSimulator";
+import { Drops } from "./Drops";
+import { AttackType, ExpReward, ItemData, ItemMap, MonsterData, StyleExperience } from "../types/types";
 // import monsterData blahblah .json
 
 interface MonsterOptions {
@@ -15,8 +16,8 @@ export class Monster {
   name: string;
   dropTable: DropTable;
   data: MonsterData;
-  
-  constructor({ id, name, dropTable }: MonsterOptions) {   
+
+  constructor({ id, name, dropTable }: MonsterOptions) {
     this.dropTable = dropTable;
     this.name = name
     this.id = id;
@@ -53,10 +54,12 @@ export class Monster {
   }
 
   kill = (amount = 1): ItemData[] => {
-    const sim = new DropSimulator(this.dropTable);
-    const loot = sim.getDrops(amount);
-    return loot;
+    const y = getDrop(this.dropTable, amount);
+    console.log(y);
+    return dropMapToItemData(y);
   };
+
+  getLoot = (amount = 1): ItemMap => getDrop(this.dropTable, amount);
 
   getExperience = (amount = 1, styleExp: StyleExperience): ExpReward[] => {
     const { hitpoints } = this.data;
