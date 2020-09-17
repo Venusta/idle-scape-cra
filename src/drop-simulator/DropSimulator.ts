@@ -2,7 +2,7 @@ import { ItemData, ItemMap } from "../types/types";
 import { getRandomIntInclusive, rollForOneIn } from "../util";
 import { DropData, Amount, DropTable } from "./DropTable";
 
-export const dropMapToItemData = (map: ItemMap): ItemData[] => {
+export const itemMapToItemData = (map: ItemMap): ItemData[] => {
   // todo util?
   const itemData: ItemData[] = [];
   map.forEach((amount, item) => {
@@ -21,14 +21,12 @@ const getAmount = (amount: Amount): number => {
 };
 
 export const getDrop = ({
-    alwaysItems,
-    secondaryItems,
-    tertiaryItems,
-    oneInXItems,
-    totalWeight,
-  }: DropTable,
-  amount = 1
-): ItemMap => {
+  alwaysItems,
+  secondaryItems,
+  tertiaryItems,
+  oneInXItems,
+  totalWeight,
+}: DropTable): ItemMap => {
   const dropMap: ItemMap = new Map([]);
 
   const processDrop = (dropData: DropData): void => {
@@ -47,47 +45,41 @@ export const getDrop = ({
     return;
   };
 
-  const getSingleDrop = () => {
-    alwaysItems.forEach((dropData) => {
+  alwaysItems.forEach((dropData) => {
+    processDrop(dropData);
+  });
+
+  tertiaryItems.forEach((dropData) => {
+    if (rollForOneIn(dropData.chance)) {
       processDrop(dropData);
-    });
-
-    tertiaryItems.forEach((dropData) => {
-      if (rollForOneIn(dropData.chance)) {
-        processDrop(dropData);
-      }
-    });
-
-    for (let index = 0; index < oneInXItems.length; index += 1) {
-      /**
-       * sorted so it rolls the rarest item first
-       */
-      const sorted = oneInXItems.sort((a, b) => b.chance - a.chance);
-      const dropData = sorted[index];
-
-      if (rollForOneIn(dropData.chance)) {
-        processDrop(dropData); // return because it should be the only drop
-        return dropMap;
-      }
     }
+  });
 
-    const roll = getRandomIntInclusive(1, totalWeight);
-    let weightTally = 0;
+  for (let index = 0; index < oneInXItems.length; index += 1) {
+    /**
+     * sorted so it rolls the rarest item first
+     */
+    const sorted = oneInXItems.sort((a, b) => b.chance - a.chance); // todo do this in the actual oneinX method
+    const dropData = sorted[index];
 
-    for (let index = 0; index < secondaryItems.length; index += 1) {
-      const item = secondaryItems[index];
+    if (rollForOneIn(dropData.chance)) {
+      processDrop(dropData); // return because it should be the only drop
+      return dropMap;
+    }
+  }
 
-      weightTally += item.weight;
+  const roll = getRandomIntInclusive(1, totalWeight);
+  let weightTally = 0;
 
-      if (roll <= weightTally) {
-        processDrop(item);
-        break;
-      }
+  for (let index = 0; index < secondaryItems.length; index += 1) {
+    const item = secondaryItems[index];
+
+    weightTally += item.weight;
+
+    if (roll <= weightTally) {
+      processDrop(item);
+      break;
     }
   };
-
-  for (let index = 0; index < amount; index++) {
-    getSingleDrop();
-  }
   return dropMap;
 };

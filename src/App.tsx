@@ -13,8 +13,7 @@ import { TaskList } from './features/task-list/TaskList';
 import { Log } from './features/task-log/Log';
 import { TaskTimer } from './features/TaskTimer/TaskTimer';
 import { monsters } from "./monsters/"
-import { DropTable } from './drop-simulator/DropTable';
-import { dropMapToItemData } from './drop-simulator/DropSimulator';
+import { itemMapToItemData } from './drop-simulator/DropSimulator';
 
 const SingleCharacterView = () => { // pass components into this i think
   const ids: NameState = useSelector((state: RootState) => state.characters.names, shallowEqual);
@@ -28,18 +27,8 @@ const SingleCharacterView = () => { // pass components into this i think
 
 
     console.time("Loot Sim")
-    let loot3 = corporealBeast.getLoot(10000)
-    setLoot(dropMapToItemData(loot3))
-    // let x = 0;
-    // for (let index = 0; index < 10; index++) {
-    //   let loot3 = corporealBeast.getLoot(10000)
-    //   if ((loot3.get(12819) || 0) >= 13) {
-    //     setLoot(dropMapToItemData(loot3))
-    //     x = index;
-    //     break;
-    //   }
-    // }
-    // console.log("Iteration: " + x);
+    let loot3 = corporealBeast.getLoot(100)
+    setLoot(itemMapToItemData(loot3))
     console.timeEnd("Loot Sim")
 
   }, [])
@@ -53,34 +42,11 @@ const SingleCharacterView = () => { // pass components into this i think
       />
     );
   }
-  // console.time("Loot Sim")
-  // let loot: ItemData[] = []
-  // loot = commanderZilyana.kill(1000);
-  // console.timeEnd("Loot Sim")
-
-  // console.time("Loot Sim2")
-  // let loot2: ItemData[] = []
-  // loot2 = corporealBeast.kill(1000);
-  // console.timeEnd("Loot Sim2")
-  // console.log(loot2);
-
-  // console.time("Loot Sim3")
-  // let loot3: ItemData[] = []
-  // loot3 = chaosDruid.kill(1000);
-  // console.timeEnd("Loot Sim3")
-  // console.log(loot3);
-
-
 
   return (
     <div className="container">
       <div className="middel-panel">
         <LootWindow bank={loot} />
-        {/* <LootWindow bank={corporealBeast.kill(10000)} />
-        <LootWindow bank={corporealBeast.kill(10000)} />
-        <LootWindow bank={corporealBeast.kill(10000)} /> */}
-        {/* <LootWindow bank={loot} />
-        <LootWindow bank={loot3} /> */}
         <Log />
         <TaskList />
         <Bank id={characterId} />
