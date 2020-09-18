@@ -4,7 +4,7 @@
 import { addReward } from "../app/slices/character";
 import { store } from "../app/store";
 import { addMsg } from "../app/slices/log";
-import { cooking } from "../tasks/data/cooking";
+import { cooking } from "./data/cooking";
 import { hasReqs } from "../util/Requirements";
 import {
   TaskInputOptions, TaskOptions, CharacterState,

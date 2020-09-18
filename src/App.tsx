@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { LootWindow } from './features/loot-window/LootWindow';
-import { ItemData } from './types/types';
-import { Sidebar } from './features/sidebar/Sidebar';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { TaskSelector } from './features/task-selector/TaskSelector';
-import { useSelector, shallowEqual } from 'react-redux';
-import { RootState } from './app/store';
-import { NameState } from './builders/CharacterBuilder';
-import { Bank } from './features/bank/Bank';
-import { TaskList } from './features/task-list/TaskList';
-import { Log } from './features/task-log/Log';
-import { TaskTimer } from './features/TaskTimer/TaskTimer';
-import { monsters } from "./monsters/"
-import { itemMapToItemData } from './drop-simulator/DropSimulator';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import {
+  Redirect, Route, Switch, useParams,
+} from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
+import { LootWindow } from "./components/loot-window/LootWindow";
+import { ItemData } from "./types/types";
+import { Sidebar } from "./components/sidebar/Sidebar";
+import { TaskSelector } from "./components/task-selector/TaskSelector";
+import { RootState } from "./app/store";
+import { NameState } from "./builders/CharacterBuilder";
+import { Bank } from "./components/bank/Bank";
+import { TaskList } from "./components/task-list/TaskList";
+import { Log } from "./components/task-log/Log";
+import { TaskTimer } from "./components/TaskTimer/TaskTimer";
+import { monsters } from "./monsters";
+import { itemMapToItemData } from "./drop-simulator/DropSimulator";
 
 const SingleCharacterView = () => { // pass components into this i think
   const ids: NameState = useSelector((state: RootState) => state.characters.names, shallowEqual);
   const { characterId } = useParams<{ characterId: string }>();
 
-  const initla: ItemData[] = []
-  const [loot, setLoot] = useState(initla)
+  const initla: ItemData[] = [];
+  const [loot, setLoot] = useState(initla);
 
   useEffect(() => {
     const { commanderZilyana, corporealBeast, chaosDruid } = monsters;
 
 
-    console.time("Loot Sim")
-    let loot3 = corporealBeast.getLoot(100)
-    setLoot(itemMapToItemData(loot3))
-    console.timeEnd("Loot Sim")
-
-  }, [])
+    console.time("Loot Sim");
+    const loot3 = corporealBeast.getLoot(100);
+    setLoot(itemMapToItemData(loot3));
+    console.timeEnd("Loot Sim");
+  }, []);
 
   if (ids[characterId] === undefined) {
     return (
@@ -57,12 +58,11 @@ const SingleCharacterView = () => { // pass components into this i think
 };
 
 const App = () => {
-
   useEffect(() => {
 
     //  console.table(testMonster.resultToNames(50));
 
-  }, [])
+  }, []);
 
   return (
     <div className="App">
@@ -75,7 +75,7 @@ const App = () => {
         <Route exact path="/">
           <div className="middel-panel">
             some content
-        </div>
+          </div>
 
         </Route>
         <Route path="/character/:characterId">
@@ -87,6 +87,6 @@ const App = () => {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;
