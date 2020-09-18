@@ -24,7 +24,7 @@ export const Log = (): JSX.Element => {
     }
   }, [items]);
 
-  const renderItem = (itemID: number, { amount, colour }: {amount: string, colour: string}): JSX.Element => (
+  const renderItem = (itemID: number, { amount, colour }: {amount: string; colour: string}): JSX.Element => (
     <Item
       key={`bankItem-${uuid()}`}
       itemID={itemID}

@@ -11,4 +11,4 @@ export const herbDropTable = new DropTable()
   .add("Grimy kwuarm", 5)
   .add("Grimy cadantine", 4)
   .add("Grimy lantadyme", 3)
-  .add("Grimy dwarf weed", 3)
+  .add("Grimy dwarf weed", 3);

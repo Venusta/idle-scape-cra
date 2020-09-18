@@ -5,45 +5,45 @@ import { createSlice } from "@reduxjs/toolkit";
 import { TaskReward } from "../../types/types";
 
 export type QueuedTask = {
-  characterId: string
-  taskType: string
-  taskName: string
-  amount: number
+  characterId: string;
+  taskType: string;
+  taskName: string;
+  amount: number;
 };
 
 export interface TaskInfo {
-  name: string,
-  amount: number
+  name: string;
+  amount: number;
 }
 
 type ProcessQueueTaskPayload = {
   payload: {
-    characterId: string
-    task: TaskDerpThing | false
-  }
+    characterId: string;
+    task: TaskDerpThing | false;
+  };
 };
 
 type NewTaskPayload = {
-  payload: QueuedTask
+  payload: QueuedTask;
 };
 
 export interface TaskDerpThing { // todo and this
-  characterId: string
-  duration: number
-  type: string
-  info: TaskInfo
-  reward: TaskReward
+  characterId: string;
+  duration: number;
+  type: string;
+  info: TaskInfo;
+  reward: TaskReward;
 }
 export interface TaskPayloadData extends TaskDerpThing {
-  when: number
+  when: number;
 }
 
 export type TaskState = {
   [characterID: string]: {
-    queue: Array<QueuedTask>
-    active: boolean
+    queue: Array<QueuedTask>;
+    active: boolean;
     activeTask: TaskPayloadData | false;
-  }
+  };
 };
 
 const taskInitialState: TaskState = { // todo auto generate based on character ids / save

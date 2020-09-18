@@ -127,7 +127,7 @@ export class Equipment {
     }
   };
 
-  public getAttackTypeAndExperience = (attackStyle: AttackStyle): { attackType: AttackType, styleExperience: StyleExperience } => {
+  public getAttackTypeAndExperience = (attackStyle: AttackStyle): { attackType: AttackType; styleExperience: StyleExperience } => {
     const weaponID = this.characterEquipment[EquipmentSlotNames.weapon];
     const weaponData = weaponSlotData[weaponID].weapon;
     const weaponType = weaponData?.weapon_type;

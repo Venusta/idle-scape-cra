@@ -8,7 +8,7 @@ interface InitialState {
 }
 
 const initialState: {
-  items: any[]
+  items: any[];
 } = {
   items: [
     // "17:52:13 Marcus finished killing 50 Chickens and received 1245 attack and 348 hitpoints experience! More Details",

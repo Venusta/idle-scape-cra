@@ -2,7 +2,9 @@ import { itemSearchData } from "./Items";
 import { DropTable } from "../drop-simulator/DropTable";
 import { itemMapToItemData, getDrop } from "../drop-simulator/DropSimulator";
 import { Drops } from "./Drops";
-import { AttackType, ExpReward, ItemData, ItemMap, MonsterData, StyleExperience } from "../types/types";
+import {
+  AttackType, ExpReward, ItemData, ItemMap, MonsterData, StyleExperience,
+} from "../types/types";
 import { DropCollection } from "./DropCollection";
 // import monsterData blahblah .json
 
@@ -13,14 +15,14 @@ interface MonsterOptions {
 }
 
 export class Monster {
-  id: number
+  id: number;
   name: string;
   dropTable: DropTable;
   data: MonsterData;
 
   constructor({ id, name, dropTable }: MonsterOptions) {
     this.dropTable = dropTable;
-    this.name = name
+    this.name = name;
     this.id = id;
     // this.data = monsterData[id];
     this.data = {
@@ -62,8 +64,8 @@ export class Monster {
 
   getLoot = (amount = 1): ItemMap => {
     const dropList = new DropCollection();
-    for (let index = 0; index < amount; index++) {
-      dropList.addItems(getDrop(this.dropTable))
+    for (let index = 0; index < amount; index += 1) {
+      dropList.addItems(getDrop(this.dropTable));
     }
     return dropList.get();
   };
@@ -100,7 +102,7 @@ export class Monster {
   };
 
   // todo remove later, only for debug
-  resultToNames = (amount = 1) => this.kill(amount).map((drop) => {
+  resultToNames = (amt = 1) => this.kill(amt).map((drop) => {
     const { item, amount } = drop;
     const name = itemSearchData.getName(item);
     return { name, amount };

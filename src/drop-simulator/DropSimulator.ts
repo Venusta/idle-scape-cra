@@ -42,7 +42,6 @@ export const getDrop = ({
       return;
     }
     dropMap.set(item, (dropMap.get(item) || 0) + amount);
-    return;
   };
 
   alwaysItems.forEach((dropData) => {
@@ -80,6 +79,6 @@ export const getDrop = ({
       processDrop(item);
       break;
     }
-  };
+  }
   return dropMap;
 };

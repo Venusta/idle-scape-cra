@@ -7,7 +7,7 @@ export interface FishingTasks {
   tool: number;
   maxWeight: number;
   bait?: number;
-  fishingSpot: FishingTask[]
+  fishingSpot: FishingTask[];
 }
 
 // todo maybe get rid of chaining and use a method for each specific thing

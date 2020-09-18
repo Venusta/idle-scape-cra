@@ -5,7 +5,7 @@ import {
 } from "../types/types";
 import { TaskDerpThing } from "../app/slices/task";
 import { selectCharacter } from "../app/selectors";
-import { corporealBeast } from "../monsters/CorporealBeast"
+import { corporealBeast } from "../monsters/CorporealBeast";
 import { CombatSimulator } from "../model/CombatSimulator";
 import { store } from "../app/store";
 import { levelsGained } from "../util";

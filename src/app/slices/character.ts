@@ -7,19 +7,19 @@ import { ItemData, ExpReward } from "../../types/types";
 
 interface RewardPayload {
   payload: {
-    characterId: string,
+    characterId: string;
     reward: {
-      items: ItemData[],
-      exp: ExpReward[],
-    },
-  }
+      items: ItemData[];
+      exp: ExpReward[];
+    };
+  };
 }
 
 interface UpdateBankPayload {
   payload: {
-    characterId: string,
-    bank: ItemData[],
-  }
+    characterId: string;
+    bank: ItemData[];
+  };
 }
 
 export const characterSlice = createSlice({

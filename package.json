@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "start2": "rm -rf node_modules/.cache/eslint-loader && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --fix --ext .ts,.tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -20,27 +22,34 @@
       "project": "./tsconfig.json"
     },
     "rules": {
-        "@typescript-eslint/lines-between-class-members": "off",
-        "@typescript-eslint/quotes": [
-          "error",
-          "double"
-        ],
-        "quotes": [
-          "error",
-          "double"
-        ],
-        "linebreak-style": [
-          "error",
-          "windows"
-        ],
-        "arrow-body-style": "warn",
-        "react/state-in-constructor": ["error", "never"],
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "lines-between-class-members": "off",
-        "no-console": "off",
-        "import/prefer-default-export": "off"    
-      }
+      "@typescript-eslint/lines-between-class-members": "off",
+      "@typescript-eslint/quotes": [
+        "error",
+        "double"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
+      "arrow-body-style": "warn",
+      "react/state-in-constructor": [
+        "error",
+        "never"
+      ],
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "lines-between-class-members": "off",
+      "no-console": "off",
+      "import/prefer-default-export": "off",
+      "max-len": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/ban-ts-ignore": "warn"
+
+    }
   },
   "browserslist": {
     "production": [

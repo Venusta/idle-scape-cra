@@ -4,7 +4,7 @@ import { rareDropTable } from "./RareDropTable";
 const uniques = new DropTable()
   .add("Spectral sigil", 3)
   .add("Arcane sigil", 3)
-  .add("Elysian sigil")
+  .add("Elysian sigil");
 
 export const dropTable = new DropTable()
   .oneInX(uniques, 585)
@@ -14,10 +14,10 @@ export const dropTable = new DropTable()
   .add("Mystic water staff", 12)
   .add("Mystic earth staff", 12)
   .add("Mystic fire staff", 12)
-  
+
   .add("Soul rune", 32, 250)
   .add("Runite bolts", 24, 250)
-  .add("Death rune", 22, 300)  
+  .add("Death rune", 22, 300)
   .add("Onyx bolts (e)", 20, 175)
   .add("Cannonball", 17, 2000)
   .add("Adamant arrow", 17, 750)
@@ -43,9 +43,8 @@ export const dropTable = new DropTable()
   .add("Spirit shield", 8)
   .add("Ranarr seed", 5, 10)
   .add("Holy elixir", 3)
-  
+
   .add(rareDropTable, 12, 10)
 
   .tertiary("Clue scroll (elite)", 200)
   .tertiary("Pet dark core", 5000);
-

@@ -9,8 +9,8 @@ import { NameState } from "../../builders/CharacterBuilder";
 import { QueuedTask, TaskState } from "../../app/slices/task";
 
 interface TaskData extends QueuedTask {
-  characterName: string
-  classes: string
+  characterName: string;
+  classes: string;
 }
 
 export const TaskList = (): JSX.Element => {

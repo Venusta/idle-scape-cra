@@ -9,9 +9,9 @@ export class DropCollection {
   addItems = (newDrops: ItemMap) => {
     newDrops.forEach((amount, item) => {
       this.dropCollection.set(item, (this.dropCollection.get(item) || 0) + amount);
-    })
+    });
     return this;
   };
 
-  get = () => this.dropCollection
+  get = () => this.dropCollection;
 }

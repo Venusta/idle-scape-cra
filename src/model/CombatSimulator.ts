@@ -9,11 +9,11 @@ import { getRandomInt } from "../util";
 import { Equipment } from "./Equipment";
 
 type EffectiveLevels = {
-  attack: number,
-  strength: number,
-  defence: number,
-  ranged: number,
-  magic: number,
+  attack: number;
+  strength: number;
+  defence: number;
+  ranged: number;
+  magic: number;
 };
 
 export interface CombatStats {
@@ -273,7 +273,7 @@ export class CombatSimulator {
     return combatBonuses;
   };
 
-  private getDamageAndAccuracyLevels = (characterAttackType: AttackType, characterEffectiveLevels: EffectiveLevels): { damage: number, accuracy: number } => {
+  private getDamageAndAccuracyLevels = (characterAttackType: AttackType, characterEffectiveLevels: EffectiveLevels): { damage: number; accuracy: number } => {
     const relevantDamageAndAccuracyLevels = {
       damage: 0,
       accuracy: 0,
@@ -300,7 +300,7 @@ export class CombatSimulator {
     return relevantDamageAndAccuracyLevels;
   };
 
-  public simulate = ({ duration, kills }: { duration?: number, kills?: number}): { killcount: number; rewards: TaskReward; ticks: number } => {
+  public simulate = ({ duration, kills }: { duration?: number; kills?: number}): { killcount: number; rewards: TaskReward; ticks: number } => {
     const characterEffectiveLevels = this.calculateEffectiveLevelsCharacter();
     const monsterEffectiveLevels = this.calculateEffectiveLevelsMonster();
 

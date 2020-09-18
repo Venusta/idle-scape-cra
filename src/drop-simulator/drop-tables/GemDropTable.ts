@@ -12,4 +12,4 @@ export const gemDropTable = new DropTable()
   .add("Rune javelin", 2)
   .add("Loop half of key", 2)
   .add("Tooth half of key", 2)
-  .add(megaRareDropTable, 1)
+  .add(megaRareDropTable, 1);

@@ -93,7 +93,7 @@ const FishingMenu = () => {
   const taskType = skillData.fishing.id;
   const amount = 30; // form state thingy
 
-  const idk: {[tool:number]: JSX.Element[]} = {};
+  const idk: {[tool: number]: JSX.Element[]} = {};
   skillData.fishing.tasks.forEach((fishingTask) => {
     const { tool, fishingSpot } = fishingTask;
     // console.log(fishingSpot);

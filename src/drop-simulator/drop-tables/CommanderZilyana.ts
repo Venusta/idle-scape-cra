@@ -21,7 +21,7 @@ const uniques = new DropTable()
   .add("Saradomin hilt")
   .add("Coins", 2, [19500, 20000]);
 
-  export const dropTable = new DropTable()
+export const dropTable = new DropTable()
   .always("Bones")
   .add(uniques, 3)
   .add(brewRest, 6)
@@ -44,5 +44,3 @@ const uniques = new DropTable()
 
   .tertiary("Clue scroll (elite)", 250)
   .tertiary("Pet zilyana", 5000);
-
-

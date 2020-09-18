@@ -9,7 +9,7 @@ export const rareDropTable = new DropTable()
   .add("Law rune", 2, 45)
   .add("Rune arrow", 2, 42)
   .add("Steel arrow", 2, 150)
-  
+
   .add("Rune 2h sword", 3)
   .add("Rune battleaxe", 3)
   .add("Rune sq shield", 2)
@@ -23,4 +23,4 @@ export const rareDropTable = new DropTable()
   .add("Dragonstone", 2)
   .add("Silver ore", 2, 100)
   .add(gemDropTable, 20)
-  .add(megaRareDropTable, 15)
+  .add(megaRareDropTable, 15);

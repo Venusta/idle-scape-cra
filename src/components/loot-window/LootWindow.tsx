@@ -11,7 +11,7 @@ interface BankProps {
 }
 
 export const LootWindow: React.FC<BankProps> = ({ bank }) => {
-  const renderItem = (itemID: number, { amount, colour }: { amount: string, colour: string }): JSX.Element => (
+  const renderItem = (itemID: number, { amount, colour }: { amount: string; colour: string }): JSX.Element => (
     <ItemInBank
       key={`bankItem-${uuid()}`}
       itemID={itemID}

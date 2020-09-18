@@ -24,5 +24,3 @@ export const dropTable = new DropTable()
   .add(gemDropTable, 1)
 
   .tertiary("Ensouled chaos druid head", 35);
-
-

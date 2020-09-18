@@ -7,11 +7,11 @@ import { EquipmentSlots, ItemData, CharacterSkills } from "../types/types";
 export type IDsState = string[];
 
 export interface ItemBankState {
-  [x: string]: ItemData[]
+  [x: string]: ItemData[];
 }
 
 export interface NameState {
-  [x: string]: string
+  [x: string]: string;
 }
 
 export interface SkillsState {
@@ -23,15 +23,15 @@ export interface StateOptions {
 }
 
 export interface EquipmentState {
-  [x: string]: EquipmentSlots
+  [x: string]: EquipmentSlots;
 }
 
 interface CharactersState {
-  ids: IDsState,
-  banks: ItemBankState,
-  skills: SkillsState,
-  names: NameState,
-  equipment: EquipmentState,
+  ids: IDsState;
+  banks: ItemBankState;
+  skills: SkillsState;
+  names: NameState;
+  equipment: EquipmentState;
 }
 
 const startingIDs = ["3", "9", "11", "15", "18"];

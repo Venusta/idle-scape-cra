@@ -6,7 +6,7 @@ import {
   TaskInputOptions, SkillName, CharacterState,
 } from "../types/types";
 import { SkillNames } from "../model/Skills";
-import { fishing, FishingTasks } from "../tasks/data/fishing";
+import { fishing, FishingTasks } from "./data/fishing";
 import {
   expToLevel, randomRoll, calculateWeight, levelsGained,
 } from "../util";

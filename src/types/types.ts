@@ -33,7 +33,7 @@ export interface CharacterSkills {
 export interface TaskInputOptions {
   characterId: string;
   taskName: string;
-  amount: number
+  amount: number;
 }
 
 export interface CharacterState {
@@ -78,14 +78,14 @@ export interface TaskFailMap {
 }
 
 export interface TaskEquipmentData extends ItemData {
-  slot: EquipmentSlotName
+  slot: EquipmentSlotName;
 }
 
 export interface TaskRequirements {
   // skills: SkillData[]
-  skills: SkillMap
-  items: ItemMap
-  equipment: TaskEquipmentData[]
+  skills: SkillMap;
+  items: ItemMap;
+  equipment: TaskEquipmentData[];
 }
 
 export interface TaskOptions {

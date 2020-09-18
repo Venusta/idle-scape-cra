@@ -46,7 +46,7 @@ export const Bank: React.FC<BankProps> = ({ id }) => { // todo pass bank / loot 
     e.stopPropagation();
   };
 
-  const renderItem = (itemID: number, { amount, colour }: {amount: string, colour: string}): JSX.Element => (
+  const renderItem = (itemID: number, { amount, colour }: {amount: string; colour: string}): JSX.Element => (
     <ItemInBank
       key={`bankItem-${uuid()}`}
       itemID={itemID}

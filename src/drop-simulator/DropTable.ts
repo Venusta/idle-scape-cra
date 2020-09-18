@@ -9,11 +9,11 @@ export interface DropData {
 }
 
 export interface SecondaryDropData extends DropData {
-  weight: number
+  weight: number;
 }
 
 export interface ChanceDropData extends DropData {
-  chance: number
+  chance: number;
 }
 
 const resolveId = (drop: Drop | string) => (typeof drop === "string" ? itemSearchData.getId(drop) : drop);
@@ -45,7 +45,7 @@ export class DropTable {
    */
 
   add = (drop: Drop | string, weight = 1, amount: Amount = 1): this => {
-    if (weight === 0) throw new Error("WTF WEIGHT 0, LEARN TO TYPE, YOU CUNT")
+    if (weight === 0) throw new Error("WTF WEIGHT 0, LEARN TO TYPE, YOU CUNT");
     this.secondaryItems.push({ item: resolveId(drop), amount, weight });
     this.totalWeight += weight;
     return this;
