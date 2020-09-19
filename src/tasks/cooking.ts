@@ -25,14 +25,14 @@ interface CookingTaskData {
   id: SkillNames;
 }
 
-const selectTask = (taskData: CookingTaskData, taskName: string) => {
+const findTask = (taskData: CookingTaskData, taskName: string) => {
   return taskData.tasks.find((task) => task.name === taskName);
 };
 
 export const cookingTask = ({ characterId, taskName, amount }: TaskInputOptions): TaskDerpThing | false => {
   const character: CharacterState = selectCharacter(store.getState(), characterId);
   const { name: characterName, skills } = character;
-  const selectedTask = selectTask(cooking, taskName);
+  const selectedTask = findTask(cooking, taskName);
 
   const startingLevel = expToLevel(skills.cooking.exp);
   let cookingExp = skills.cooking.exp;
