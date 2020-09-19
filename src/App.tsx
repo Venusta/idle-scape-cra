@@ -13,9 +13,9 @@ import { NameState } from "./builders/CharacterBuilder";
 import { Bank } from "./components/bank/Bank";
 import { TaskList } from "./components/task-list/TaskList";
 import { Log } from "./components/task-log/Log";
-import { TaskTimer } from "./components/TaskTimer/TaskTimer";
 import { monsters } from "./monsters";
 import { itemMapToItemData } from "./drop-simulator/DropSimulator";
+import { tick } from "./app/tick";
 
 const SingleCharacterView = () => { // pass components into this i think
   const ids: NameState = useSelector((state: RootState) => state.characters.names, shallowEqual);
@@ -57,11 +57,10 @@ const SingleCharacterView = () => { // pass components into this i think
   );
 };
 
-const App = () => {
+const App = (): JSX.Element => {
   useEffect(() => {
-
+    tick();
     //  console.table(testMonster.resultToNames(50));
-
   }, []);
 
   return (
@@ -69,7 +68,6 @@ const App = () => {
       {/* <p>{JSON.stringify(loot2.map((item) => {
         return item.item
       }), null, 2)}</p> */}
-      <TaskTimer />
       <Sidebar />
       <Switch>
         <Route exact path="/">

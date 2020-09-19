@@ -63,12 +63,12 @@ export const taskSlice = createSlice({
   name: "tasks",
   initialState: taskInitialState,
   reducers: {
-    newTask: (state, { payload: { characterId, taskType, taskName, amount } }: NewTaskPayload) => {
+    newTask: (state, { payload: { characterId, taskType, taskName, amount } }: NewTaskPayload): void => {
       const { queue } = state[characterId];
       queue.push({ characterId, taskType, taskName, amount });
     },
 
-    processQueue: (state, { payload: { characterId, task } }: ProcessQueueTaskPayload) => {
+    processQueue: (state, { payload: { characterId, task } }: ProcessQueueTaskPayload): void => {
       const { queue, active } = state[characterId];
 
       if (task === false) {
@@ -98,7 +98,7 @@ export const taskSlice = createSlice({
       queue.shift();
     },
 
-    handleActiveTask: (state, { payload: { characterId, type } }: { payload: TaskPayloadData }) => {
+    handleActiveTask: (state, { payload: { characterId, type } }: { payload: TaskPayloadData }): void => {
       console.log(`${type} task finished.`);
       state[characterId].active = false;
       const { queue } = state[characterId];

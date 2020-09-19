@@ -6,12 +6,12 @@ export class DropCollection {
     this.dropCollection = new Map([]);
   }
 
-  addItems = (newDrops: ItemMap) => {
+  addItems = (newDrops: ItemMap): this => {
     newDrops.forEach((amount, item) => {
       this.dropCollection.set(item, (this.dropCollection.get(item) || 0) + amount);
     });
     return this;
   };
 
-  get = () => this.dropCollection;
+  get = (): ItemMap => this.dropCollection;
 }

@@ -1,7 +1,6 @@
 import { itemSearchData } from "./Items";
 import { DropTable } from "../drop-simulator/DropTable";
 import { itemMapToItemData, getDrop } from "../drop-simulator/DropSimulator";
-import { Drops } from "./Drops";
 import {
   AttackType, ExpReward, ItemData, ItemMap, MonsterData, StyleExperience,
 } from "../types/types";
@@ -56,6 +55,7 @@ export class Monster {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   kill = (amount = 1): ItemData[] => {
     const y = getDrop(this.dropTable);
     console.log(y);
@@ -102,6 +102,7 @@ export class Monster {
   };
 
   // todo remove later, only for debug
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   resultToNames = (amt = 1) => this.kill(amt).map((drop) => {
     const { item, amount } = drop;
     const name = itemSearchData.getName(item);

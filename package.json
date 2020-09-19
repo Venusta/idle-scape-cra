@@ -47,8 +47,8 @@
       "import/prefer-default-export": "off",
       "max-len": "off",
       "react/prop-types": "off",
-      "@typescript-eslint/ban-ts-ignore": "warn"
-
+      "@typescript-eslint/ban-ts-ignore": "warn",
+      "no-trailing-spaces": "warn"
     }
   },
   "browserslist": {
