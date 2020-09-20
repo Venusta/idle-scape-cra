@@ -2,7 +2,7 @@ import { batch } from "react-redux";
 import { combatTask } from "../tasks/combat";
 import { cookingTask } from "../tasks/cooking";
 import { fishingTask } from "../tasks/fishing";
-import { selectTasks } from "./selectors/selectTasks";
+import { selectTasks } from "./selectors";
 import { addReward } from "./slices/character";
 import { processQueue, handleActiveTask } from "./slices/task";
 import { store } from "./store";
